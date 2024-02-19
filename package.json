@@ -3,18 +3,45 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@hookform/resolvers": "^3.3.4",
+    "@mui/icons-material": "^5.15.5",
+    "@mui/joy": "^5.0.0-beta.24",
+    "@mui/material": "^5.15.5",
+    "@mui/material-next": "^6.0.0-alpha.120",
+    "@mui/utils": "^5.15.6",
+    "@mui/x-date-pickers": "^6.19.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.70",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
+    "axios": "^1.6.5",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "dotenv": "^16.4.4",
+    "firebase": "^10.8.0",
+    "googleapis": "^131.0.0",
+    "idtoken-verifier": "^2.2.4",
+    "jsonwebtoken": "^9.0.2",
+    "jws": "^4.0.0",
+    "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.0",
     "react-dom": "^18.2.0",
+    "react-dotenv": "^0.1.3",
+    "react-hook-form": "^7.50.1",
+    "react-router-dom": "^6.21.2",
     "react-scripts": "5.0.1",
+    "stream": "^0.0.2",
+    "stream-browserify": "^3.0.0",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "util": "^0.12.5",
+    "uuid": "^9.0.1",
+    "web-vitals": "^2.1.4",
+    "zod": "^3.22.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,5 +66,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.11.4",
+    "@types/uuid": "^9.0.8",
+    "eslint": "^8.56.0"
   }
 }
