@@ -6,8 +6,8 @@ class AuthService {
  
     constructor() {
         this.verifier = new IdTokenVerifier({
-            issuer: process.env.ISSUER!,
-            audience: process.env.AUDIENCE!,
+            issuer: process.env.REACT_APP_ISSUER!,
+            audience: process.env.REACT_APP_AUDIENCE!,
         });
     }
 
