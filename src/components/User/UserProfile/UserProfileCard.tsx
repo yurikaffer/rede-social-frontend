@@ -45,14 +45,29 @@ const UserProfileCard: React.FC = () => {
                 <Box display={'flex'} width={'100%'} justifyContent={'center'}>
                     <ImgUserProfile user={userData} />
 
-                    <Box display={'flex'} flexDirection={'column'} ml={5} width={'60%'}>
+                    <Box display={'flex'} flexDirection={'column'} ml={2} width={'60%'}>
 
-                        <Box display={'flex'} >
+                        <Box display={'flex'} 
+                            sx={{
+                                '@media (max-width: 450px)': {
+                                    flexDirection: 'column',
+                                    justifyContent: 'start'
+                                }
+                            }}
+                            >
                             <Typography sx={{ color: 'gray', maxWidth: '300px', overflow: 'hidden', textOverflow: 'ellipsis'  }} fontSize={16} mb={1}>
                                 @{userData.userName}
                             </Typography>
 
-                            <Typography sx={{ color: 'gray' }} marginLeft={'auto'}>
+                            <Typography 
+                                sx={{ 
+                                    color: 'gray',
+                                    ml: 'auto',
+                                    '@media (max-width: 450px)': {
+                                        ml: 0,
+                                    }
+                                 }} 
+                            >
                                 Membro há {formatTime(String(userData.createdAt), true)}
                             </Typography>
                         </Box>

@@ -51,19 +51,26 @@ const ImgUserProfile: React.FC<ImgUserProfileProps> = ({ user }) => {
         setIsModalOpen(false)
     }
 
+    const imgStyle: React.CSSProperties = {
+        objectFit: 'cover', 
+        width: '170px', 
+        height: '170px', 
+        borderRadius: '50%',
+    };
+
+    if (window.innerWidth <= 500) {
+        imgStyle.width = '120px';
+        imgStyle.height = '120px';
+    }
+
     return (
         <>
-            <Box onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter} sx={{ position: 'relative', display: 'inline-block' }}>
+            <Box onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter} display={'flex'} alignItems={'center'} >
                 <img
                     src={user.filePath ? user.filePath : '/upload-icon.png'}
                     loading="lazy"
                     alt=""
-                    style={{ 
-                        objectFit: 'cover', 
-                        width: '200px', 
-                        height: '200px', 
-                        borderRadius: '50%'
-                    }}
+                    style={imgStyle}
                 />
                 {isHovered && (user.id === userLogged?.id) && (
                     <label htmlFor="image-upload">

@@ -8,6 +8,17 @@ const UserProfileStats: React.FC<{userId: number}> = ({userId}) => {
     const { countPostsUser } = usePostList();
     const {followed, followers} = useFollow()
 
+    const style = {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 0.5,
+        color: 'white',
+        fontSize: 14,
+        '@media (max-width: 550px)': {
+            flexDirection: 'column',
+        },
+    }
+
     return (
         <Box sx={{
                 bgcolor: '#28343E',
@@ -19,16 +30,16 @@ const UserProfileStats: React.FC<{userId: number}> = ({userId}) => {
                 '& > div': { flex: 1 },
             }}
         >
-            <Box display={'flex'}  alignItems={'center'} gap={0.5} color={'white'} fontSize={14}>
+            <Box sx={style} >
                 <Typography fontWeight="bold" >{countPostsUser(userId)}</Typography>
                 <Typography >Posts</Typography>
             </Box>
-            <Box display={'flex'}  alignItems={'center'} gap={0.5} color={'white'} fontSize={14}>
+            <Box sx={style} >
                 <Typography fontWeight="bold">{followed}</Typography>
                 <Typography >Seguidores</Typography>
                 
             </Box>
-            <Box display={'flex'} alignItems={'center'} gap={0.5} color={'white'} fontSize={14}>
+            <Box sx={style} >
                 
                 <Typography fontWeight="bold">{followers}</Typography>
                 <Typography>Seguindo</Typography>

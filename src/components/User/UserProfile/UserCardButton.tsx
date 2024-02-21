@@ -73,6 +73,7 @@ const UserCardButton: React.FC<UserCardButtonProps> = ({ userId }) => {
                     backgroundColor: '#28343E',
                     padding: 1,
                     marginLeft: 'auto',
+                    mt: 1,
                     borderRadius: 2,
                     '@media (max-width: 720px)': {
                         width: '100%',
