@@ -3,12 +3,12 @@ import UserService from '../../api/Service/UserService';
 import Autocomplete from '@mui/material/Autocomplete';
 import { UserInterface } from '../../interface/UserInterface';
 import { Avatar, Box, InputBase, List, ListItem, Typography } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 const Search: React.FC = () => {
     const [users, setUsers] = useState<UserInterface[]>([]);
     const [filteredUsers, setFilteredUsers] = useState<UserInterface[]>([]);
     const [listOpen, setListOpen] = useState<boolean>();
-    const [inputValue, setInputValue] = useState<string>('');
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -21,7 +21,6 @@ const Search: React.FC = () => {
     }, []);
 
     const handleUserSelected = (user: UserInterface) => {
-        setInputValue('')
         setListOpen(false);
         window.open(`/user/${user.id}`, '_blank');
     };
@@ -69,29 +68,31 @@ const Search: React.FC = () => {
     }
 
     return (
-        <Box width={'15vw'} >
-            <Autocomplete
-                freeSolo
-                options={users.map(user => user.name)}
-                onInputChange={(event, value) => handleSearch(value)}
-                renderInput={(params) => (
-                    <InputBase
-                        {...params}
-                        placeholder="Pesquise por usuários"
-                        onChange={(event) => setInputValue(event.target.value)}
-                        sx={{
-                            backgroundColor: "#28343E",
-                            borderRadius: 10,
-                            padding: '5px 0px 5px 15px',
-                            marginLeft: '10px',
-                            color: 'white',
-                            minWidth: '200px'
-                        }}
+        <Box width={'15vw'} 
+            sx={{
+                backgroundColor: "#28343E",
+                borderRadius: 10,
+                padding: '5px 15px 5px 15px',
+                marginLeft: '10px',
+                minWidth: '200px',
+                '@media (max-width: 550px)': {width: '100%', mr: 1}
+            }}>
+                <Box display={'flex'} alignItems={'center'} gap={1}>
+                    <SearchIcon color='secondary'/>
+                    <Autocomplete
+                        freeSolo
+                        options={users.map(user => user.name)}
+                        onInputChange={(event, value) => handleSearch(value)}
+                        renderInput={(params) => (
+                            <InputBase
+                                {...params}
+                                placeholder="#Pesquise"
+                                sx={{color: 'white'}}
+                            />
+                        )}
                     />
-                )}
-            />
-            {listOpen ? renderListSearch() : null}
-
+                </Box>
+                {listOpen ? renderListSearch() : null}
         </Box>
     );
 };

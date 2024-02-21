@@ -38,6 +38,7 @@ const Register: React.FC = () => {
     const navigate = useNavigate();
     const [isValidPassword, setIsValidPassword] = useState(true);
     const [msgError, setMsgError] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const { register, handleSubmit, formState: { errors } } = useForm<useFormType>({
         resolver: zodResolver(useFormSchema)
@@ -45,7 +46,8 @@ const Register: React.FC = () => {
 
     const onSubmit = async (data: useFormType) => {
         setMsgError('');
-        if (await validPassword(data)) {
+        if (await validPassword(data) && !isSubmitting) {
+            setIsSubmitting(true);
             const updatedUser = {
                 name: data.name,
                 email: data.email,
@@ -55,6 +57,7 @@ const Register: React.FC = () => {
 
             const response = await UserService.registerUser(updatedUser);
             if ('error' in response) {
+                setIsSubmitting(false);
                 setMsgError(response.error);
             } else {
                 setMsgError('');

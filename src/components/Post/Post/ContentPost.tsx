@@ -45,8 +45,8 @@ const ContentPost: React.FC<ContentPostProp> = ({ post }) => {
                     <img
                         src={post.imgURL}
                         loading="lazy"
-                        alt=""
-                        style={{ objectFit: 'cover', width: '100%', height: '100%', borderRadius: '5px' }}
+                        alt="postImg"
+                        style={{ objectFit: 'cover', width: '100%', height: '100%', borderRadius: '5px', maxHeight: '600px' }}
                     />
                 </Box>
             )}

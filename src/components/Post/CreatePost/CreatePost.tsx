@@ -72,7 +72,7 @@ const CreatePost: React.FC = () => {
     return (
       imgUrl && (
         <Box display={'flex'} flexDirection={'column'} alignItems={'end'} marginBottom={1}>
-          <StyledImage src={imgUrl} loading="lazy" alt="" />
+          <StyledImage src={imgUrl} loading="lazy" style={{ objectFit: 'cover', width: '100%', height: '100%', borderRadius: '5px', maxHeight: '600px' }}/> 
           {isHovered && (
             <StyledIconButton onClick={handleDeleteImg}>
               <DeleteIcon color='secondary' />

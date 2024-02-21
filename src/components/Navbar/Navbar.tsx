@@ -11,6 +11,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useUser } from '../../context/UserContext';
 import { NavbarAvatarBox, NavbarBox, NavbarContainer, NavbarDivider, NavbarIconsContainer, NavbarMenuItem, NavbarSectionHome, TypographyUserName } from './NavbarStyles';
+import { Box } from '@mui/material';
 
 function Navbar() {
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -55,7 +56,9 @@ function Navbar() {
                     <IconButton onClick={navigateToHome}>
                         <HomeIcon fontSize='large' color='secondary' />
                     </IconButton>
-                    <Search />
+                    <Box sx={{'@media (max-width: 550px)': {display: 'none'} }}>
+                        <Search />
+                    </Box>
                 </NavbarSectionHome>
 
                 <NavbarIconsContainer>
@@ -100,6 +103,9 @@ function Navbar() {
                     </NavbarAvatarBox>
                 </NavbarIconsContainer>
             </NavbarContainer>
+            <Box sx={{display: 'none', '@media (max-width: 550px)': {display: 'flex'} }}>
+                <Search />
+            </Box>
         </NavbarBox>
     );
 }
