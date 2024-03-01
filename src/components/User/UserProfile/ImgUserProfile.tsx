@@ -65,7 +65,7 @@ const ImgUserProfile: React.FC<ImgUserProfileProps> = ({ user }) => {
 
     return (
         <>
-            <Box onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter} display={'flex'} alignItems={'center'} >
+            <Box onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter} sx={{ position: 'relative', display: 'inline-block' }}>
                 <img
                     src={user.filePath ? user.filePath : '/upload-icon.png'}
                     loading="lazy"

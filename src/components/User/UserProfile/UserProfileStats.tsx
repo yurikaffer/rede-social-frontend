@@ -32,17 +32,17 @@ const UserProfileStats: React.FC<{userId: number}> = ({userId}) => {
         >
             <Box sx={style} >
                 <Typography fontWeight="bold" >{countPostsUser(userId)}</Typography>
-                <Typography >Posts</Typography>
+                <Typography >posts</Typography>
             </Box>
             <Box sx={style} >
                 <Typography fontWeight="bold">{followed}</Typography>
-                <Typography >Seguidores</Typography>
+                <Typography >seguidores</Typography>
                 
             </Box>
             <Box sx={style} >
                 
                 <Typography fontWeight="bold">{followers}</Typography>
-                <Typography>Seguindo</Typography>
+                <Typography>seguindo</Typography>
             </Box>
         </Box>
     );
